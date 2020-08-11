@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href='{% static "css/sinfo.css"%}'>
+</head>
+<body>
+    <div class="container" align='center'>
+        <h1>Student Information</h1><hr><br>
+        {% if students %}
+            {% for student in students %}
+                <h2>{{student.name}} Information</h2>
+                <ul><hr>
+                    <li>Student Rollno:{{student.rollno}}</li>
+                    <li>Student DOB:{{student.dob}}</li>
+                    <li>Student Marks:{{student.marks}}</li>
+                    <li>Student Email:{{student.email}}</li>
+                    <li>Student Phone:{{student.phonenumber}}</li>
+                    <li>Student Address:{{student.address}}</li>
+                </ul><hr>
+                <br>
+            {% endfor %}
+        {% else %}
+                <p>Student Records are not available</p>
+        {% endif %}
+    </div>
+</body>
+</html>
